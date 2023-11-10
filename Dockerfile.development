@@ -1,8 +1,6 @@
 ARG FROM_IMAGE=ghcr.io/dependabot/dependabot-updater-core
 FROM $FROM_IMAGE
 
-ARG ECOSYSTEM
-
 # Temporarily switch to root user in order to install packages
 USER root
 RUN apt-get update \
@@ -23,9 +21,6 @@ RUN curl -L -o ~/.vimrc https://github.com/hmarr/dotfiles/raw/main/vimrc-vanilla
   echo 'export PS1="[dependabot-core-dev] \w \[$(tput setaf 4)\]$ \[$(tput sgr 0)\]"' >> ~/.bashrc
 
 WORKDIR $DEPENDABOT_HOME
-
-RUN cd $ECOSYSTEM \
-  && bundle config path ${DEPENDABOT_HOME}/dependabot-updater/.bundle
 
 RUN cd dependabot-updater \
   && bundle config unset without \
