@@ -42,6 +42,7 @@ group :test do
     rubocop-sorbet
     vcr
     webmock
+    webrick
   )
 
   Dir.chdir(File.dirname(common_gemspec)) do
