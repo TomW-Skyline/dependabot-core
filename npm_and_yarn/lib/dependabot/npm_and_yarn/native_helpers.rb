@@ -23,6 +23,7 @@ module Dependabot
         # - `--ignore-scripts` disables prepare and prepack scripts which are run
         #   when installing git dependencies
         command = [
+          "corepack",
           "npm",
           "update",
           *dependency_names,
@@ -34,6 +35,7 @@ module Dependabot
         ].join(" ")
 
         fingerprint = [
+          "corepack",
           "npm",
           "update",
           "<dependency_names>",

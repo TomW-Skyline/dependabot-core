@@ -248,6 +248,7 @@ module Dependabot
         #   run when installing git dependencies
         def run_npm_install_lockfile_only(*install_args)
           command = [
+            "corepack",
             "npm",
             "install",
             *install_args,
@@ -259,6 +260,7 @@ module Dependabot
           ].join(" ")
 
           fingerprint = [
+            "corepack",
             "npm",
             "install",
             install_args.empty? ? "" : "<install_args>",
