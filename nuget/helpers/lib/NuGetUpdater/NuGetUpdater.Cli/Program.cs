@@ -21,9 +21,6 @@ internal sealed class Program
         };
         command.TreatUnmatchedTokensAsErrors = true;
 
-        // trim quotes
-        args = args.Select(x => x.Trim('"')).ToArray();
-
         var result = await command.InvokeAsync(args);
         if (result != 0)
         {
